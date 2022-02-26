@@ -77,8 +77,8 @@ podTemplate(
         stage('Build Bar File') {
             container("ace-buildbar") {
                 sh label: '', script: '''#!/bin/bash
-                    # Xvfb -ac :99 &
-                    # export DISPLAY=:99
+                    Xvfb -ac :99 &
+                    export DISPLAY=:99
                     export LICENSE=accept
                     pwd
                     source /opt/ibm/ace-12/server/bin/mqsiprofile
