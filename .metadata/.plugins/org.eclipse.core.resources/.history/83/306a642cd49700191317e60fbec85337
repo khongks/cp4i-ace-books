@@ -1,0 +1,9 @@
+package com.ibm.model;
+
+import java.util.HashMap;
+
+public class Book {
+
+	static HashMap books = new HashMap<String, Book>();
+	
+}

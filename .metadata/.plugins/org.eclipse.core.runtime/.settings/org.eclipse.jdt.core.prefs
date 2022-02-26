@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.COMMON_CLASSES_HOME=/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/classes
+org.eclipse.jdt.core.classpathVariable.JCN_HOME=/Applications/IBM App Connect Enterprise.app/Contents/MacOS/tools/plugins/com.ibm.etools.mft.jcn_11.0.0.4/
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/rt.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
+org.eclipse.jdt.core.compiler.compliance=1.8
+org.eclipse.jdt.core.compiler.source=1.8

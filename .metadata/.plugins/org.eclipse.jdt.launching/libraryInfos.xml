@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?><libraryInfos>
+<libraryInfo home="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home" version="1.8.0_131">
+<bootpath>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/resources.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/rt.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/sunrsasign.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/jsse.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/jce.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/charsets.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/jfr.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Users/khongks/Library/Java/Extensions"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext"/>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/Network/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/usr/lib/java"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk" version="1.8.0_151">
+<bootpath>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmjcefw.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmsaslfw.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmcertpathprovider.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmcertpathfw.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmjsseprovider2.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/xml.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmorbapi.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmorb.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmjssefw.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmsecurity.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmpkcs.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmcfw.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmjgssfw.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmjgssprovider.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed/ibmext.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/resources.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/rt.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/sunrsasign.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/jsse.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/jce.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/charsets.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/jfr.jar"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Users/khongks/Library/Java/Extensions"/>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/ext"/>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/Network/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/usr/lib/java"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/Applications/IBM App Connect Enterprise.app/Contents/MacOS/common/jdk/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home" version="1.8.0_181">
+<bootpath>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/resources.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/rt.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/sunrsasign.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/jsse.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/jce.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/charsets.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/jfr.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Users/khongks/Library/Java/Extensions"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/ext"/>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/Network/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/usr/lib/java"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home" version="1.8.0_151">
+<bootpath>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/resources.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/rt.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/sunrsasign.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jsse.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jce.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/charsets.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jfr.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Users/khongks/Library/Java/Extensions"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext"/>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/Network/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/usr/lib/java"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home" version="1.8.0_112">
+<bootpath>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/resources.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/rt.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/sunrsasign.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/jsse.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/jce.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/charsets.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/jfr.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Users/khongks/Library/Java/Extensions"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/ext"/>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/Network/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/usr/lib/java"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home" version="1.8.0_141">
+<bootpath>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/jre/lib/resources.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/jre/lib/rt.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/jre/lib/sunrsasign.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/jre/lib/jsse.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/jre/lib/jce.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/jre/lib/charsets.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/jre/lib/jfr.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Users/khongks/Library/Java/Extensions"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/jre/lib/ext"/>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/Network/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/usr/lib/java"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home" version="1.8.0_92">
+<bootpath>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/resources.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/rt.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/sunrsasign.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/jsse.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/jce.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/charsets.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/jfr.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Users/khongks/Library/Java/Extensions"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/ext"/>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/Network/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/usr/lib/java"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home" version="1.8.0_91">
+<bootpath>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/resources.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/sunrsasign.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jsse.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jce.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/charsets.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jfr.jar"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/Users/khongks/Library/Java/Extensions"/>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/ext"/>
+<entry path="/Library/Java/Extensions"/>
+<entry path="/Network/Library/Java/Extensions"/>
+<entry path="/System/Library/Java/Extensions"/>
+<entry path="/usr/lib/java"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

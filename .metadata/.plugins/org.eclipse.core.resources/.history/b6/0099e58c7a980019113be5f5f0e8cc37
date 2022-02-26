@@ -1,0 +1,62 @@
+package com.ibm.model;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+public class Book {
+
+	private static HashMap<Integer,Book> books = new HashMap<Integer,Book>();
+	
+	private static Integer current = 0;
+	private Integer id = null;
+	private String title = null;
+	private String author = null;
+	private String isbn = null;
+	private Date published = null;
+	private List<String> format = new ArrayList<String>();
+	
+	public Book(String title, String author, String isbn, Date published) {
+		this.title = title;
+		this.author = author;
+		this.isbn = isbn;
+		this.published = published;
+		this.format.add("Softcopy");
+	}
+	
+	public List<Book> list() {
+		Collection<Book> collection = books.values();
+		List<Book> list = null;
+		if (collection instanceof List)
+		  list = (List<Book>)collection;
+		else
+		  list = new ArrayList<Book>(collection);
+		return list;
+	}
+	
+	public Book getBookById(Integer id) {
+		return books.get(id);
+	}
+	
+	public synchronized void addBook(Book book) {
+		current = current + 1;
+		id = current;
+		books.put(id, book);
+	}
+	
+	public synchronized void updateBook(Integer id, Book thisBook) {
+		Book book = books.get(id);
+		book.title = thisBook.title;
+		book.isbn = thisBook.isbn;
+		book.author = thisBook.author;
+		book.published = thisBook.published;
+		book.format = thisBook.format;		
+	}
+	
+	public synchronized void removeBook(Integer id) {
+		books.remove(id);
+	}
+	
+}

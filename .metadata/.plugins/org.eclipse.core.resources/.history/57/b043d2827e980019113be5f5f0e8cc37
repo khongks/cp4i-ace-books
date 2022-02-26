@@ -1,0 +1,128 @@
+package com.ibm.compute;
+import java.util.List;
+
+import com.ibm.broker.javacompute.MbJavaComputeNode;
+import com.ibm.broker.plugin.MbElement;
+import com.ibm.broker.plugin.MbException;
+import com.ibm.broker.plugin.MbJSON;
+import com.ibm.broker.plugin.MbMessage;
+import com.ibm.broker.plugin.MbMessageAssembly;
+import com.ibm.broker.plugin.MbOutputTerminal;
+import com.ibm.broker.plugin.MbUserException;
+import com.ibm.model.Book;
+
+
+public class ListBooks_JavaCompute extends MbJavaComputeNode {
+
+	public void evaluate(MbMessageAssembly inAssembly) throws MbException {
+		MbOutputTerminal out = getOutputTerminal("out");
+//		MbOutputTerminal alt = getOutputTerminal("alternate");
+
+		MbMessage inMessage = inAssembly.getMessage();
+		MbMessageAssembly outAssembly = null;
+		try {
+			// create new message as a copy of the input
+			MbMessage outMessage = new MbMessage(inMessage);
+			outAssembly = new MbMessageAssembly(inAssembly, outMessage);
+			// ----------------------------------------------------------
+			// Add user code below
+			
+/*
+{ 
+  "Books": [ 
+  { "Title": "Steve Jobs", 
+	"ISBN": "1451648537",
+	"Author": "Walter Isaacson", 
+	"Language": "English",
+	"Published": "Oct 24, 2011",
+	"Format": [ "Hardcover", "Paperback", "Audiobook CD", "Audible" ]
+  }, 
+  { "Name": "Beautiful Whale", 
+	"ISBN": "1419703846", 
+	"Author": "Bryant Austin, Sylvia Earle",
+	"Language": "English", 
+	"Format": [ "Hardcover" ] 
+  } 
+  ] 
+}
+*/       	
+			MbElement jsonEle = outMessage.getRootElement().createElementAsLastChild(MbJSON.PARSER_NAME);
+			MbElement dataEle = jsonEle.createElementAsLastChild(MbJSON.OBJECT, MbJSON.DATA_ELEMENT_NAME, null);
+			
+			MbElement booksEle = dataEle.createElementAsLastChild(MbJSON.ARRAY, "Books", null);
+			//MbElement book1Ele = booksEle.createElementAsLastChild(MbJSON.OBJECT, MbJSON.ARRAY_ITEM_NAME, null);
+			
+			List<Book> books = Book.list();
+			books.forEach(book->{
+				
+				try {
+					MbElement bookEle = booksEle.createElementAsLastChild(MbJSON.OBJECT, MbJSON.ARRAY_ITEM_NAME, null);
+										
+					bookEle.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Title", book.getTitle());
+					bookEle.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "ISBN", book.getIsbn());
+					bookEle.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Author", book.getAuthor());
+					bookEle.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Published", book.getPublished());
+					bookEle.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Language", book.getLanguage());
+
+					
+				} catch() {
+					
+				}
+			});
+			
+			
+			book1Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Title", "Steve Jobs");
+			book1Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "ISBN", "1451648537");
+			book1Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Author", "Walter Isaacson");
+			book1Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Published", "Oct 24, 2011");
+			book1Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Language", "English");
+			MbElement book1FormatEle1 = book1Ele.createElementAsLastChild(MbJSON.ARRAY, "Format", null);
+			book1FormatEle1.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, MbJSON.ARRAY_ITEM_NAME, "Hardcover"); 
+			book1FormatEle1.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, MbJSON.ARRAY_ITEM_NAME, "Paperback"); 
+			book1FormatEle1.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, MbJSON.ARRAY_ITEM_NAME, "Audiobook CD"); 
+			book1FormatEle1.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, MbJSON.ARRAY_ITEM_NAME, "Audible");
+			
+			MbElement book2Ele = booksEle.createElementAsLastChild(MbJSON.OBJECT, MbJSON.ARRAY_ITEM_NAME, null);
+			book2Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Title", "Beautiful Whale");
+			book2Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "ISBN", "1451648537");
+			book2Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Author", "Bryant Austin, Sylvia Earle");
+			book2Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Published", "Apr 2, 2013");
+			book2Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Language", "English");
+			MbElement book2FormatEle1 = book2Ele.createElementAsLastChild(MbJSON.ARRAY, "Format", null);
+			book2FormatEle1.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, MbJSON.ARRAY_ITEM_NAME, "Hardcover"); 
+			
+			MbElement book3Ele = booksEle.createElementAsLastChild(MbJSON.OBJECT, MbJSON.ARRAY_ITEM_NAME, null);
+			book3Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Title", "A Game of Thrones (A Song of Ice and Fire, Book 1)");
+			book3Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "ISBN", "9780553381689");
+			book3Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Author", "George R. R. Martin");
+			book3Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Published", "May 28, 2002");
+			book3Ele.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "Language", "English");
+			MbElement book3FormatEle1 = book3Ele.createElementAsLastChild(MbJSON.ARRAY, "Format", null);
+			book3FormatEle1.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, MbJSON.ARRAY_ITEM_NAME, "Kindle");
+			book3FormatEle1.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, MbJSON.ARRAY_ITEM_NAME, "Audio CD");
+			book3FormatEle1.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, MbJSON.ARRAY_ITEM_NAME, "Hardcover");
+			book3FormatEle1.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, MbJSON.ARRAY_ITEM_NAME, "Paperback");
+			book3FormatEle1.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, MbJSON.ARRAY_ITEM_NAME, "Audible");
+			
+
+			// End of user code
+			// ----------------------------------------------------------
+		} catch (MbException e) {
+			// Re-throw to allow Broker handling of MbException
+			throw e;
+		} catch (RuntimeException e) {
+			// Re-throw to allow Broker handling of RuntimeException
+			throw e;
+		} catch (Exception e) {
+			// Consider replacing Exception with type(s) thrown by user code
+			// Example handling ensures all exceptions are re-thrown to be handled in the flow
+			throw new MbUserException(this, "evaluate()", "", "", e.toString(),
+					null);
+		}
+		// The following should only be changed
+		// if not propagating message to the 'out' terminal
+		out.propagate(outAssembly);
+
+	}
+
+}

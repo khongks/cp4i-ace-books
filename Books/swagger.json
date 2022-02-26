@@ -1,0 +1,143 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "Books",
+    "version" : "1.0.0",
+    "description" : "Books"
+  },
+  "paths" : {
+    "/books" : {
+      "get" : {
+        "operationId" : "listBooks",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Book"
+              }
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve books"
+      },
+      "post" : {
+        "operationId" : "postBooks",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a books",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "type" : "boolean"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    },
+    "/books/{id}" : {
+      "get" : {
+        "operationId" : "getId",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/Book"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve id",
+        "parameters" : [ {
+          "required" : true,
+          "name" : "id",
+          "in" : "path",
+          "type" : "string"
+        } ]
+      },
+      "put" : {
+        "operationId" : "putId",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Update id",
+        "parameters" : [ {
+          "required" : true,
+          "name" : "id",
+          "in" : "path",
+          "type" : "string"
+        }, {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "type" : "boolean"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      },
+      "delete" : {
+        "operationId" : "deleteId",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Remove from id",
+        "parameters" : [ {
+          "required" : true,
+          "name" : "id",
+          "in" : "path",
+          "type" : "string"
+        } ]
+      }
+    }
+  },
+  "basePath" : "/api/v1",
+  "definitions" : {
+    "Book" : {
+      "type" : "object",
+      "properties" : {
+        "Title" : {
+          "type" : "string"
+        },
+        "ISBN" : {
+          "type" : "string"
+        },
+        "Author" : {
+          "type" : "string"
+        },
+        "Published" : {
+          "type" : "string"
+        },
+        "Format" : {
+          "type" : "object",
+          "properties" : {
+            "format" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "required" : [ "format" ]
+        }
+      },
+      "required" : [ "Title", "ISBN", "Author", "Published" ]
+    }
+  }
+}

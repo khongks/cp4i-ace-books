@@ -1,0 +1,14 @@
+-- List
+curl http://acesvr01:7800/api/v1/books -v | jq '.'
+
+-- Get by Id
+curl http://acesvr01:7800/api/v1/books/1 -v | jq '.'
+
+-- Create
+curl -X POST -H "content-type: application/json" -d "@book.json" http://acesvr01:7800/api/v1/books -v | jq '.'
+
+-- Update by Id
+curl -X PUT -H "content-type: application/json" -d "@book1.json" http://acesvr01:7800/api/v1/books/2 -v | jq '.'
+
+-- Delete by Id
+curl -X DELETE http://acesvr01:7800/api/v1/books/2 -v | jq '.'
