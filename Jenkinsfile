@@ -8,8 +8,8 @@ def gitRepo = "https://github.com/khongks/cp4i-ace-books.git"
 def gitDomain = "github.com"
 
 // Params for Build Bar Stage
-def appName = "books"
-def barName = "books"
+def appName = "Books"
+def barName = "Books"
 def projectDir = "cp4i-ace-books"
 def utilsDir = "cp4i-devops-utils"
 
