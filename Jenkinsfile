@@ -98,8 +98,7 @@ podTemplate(
         }
         stage('Upload Bar File') {
             container("oc-deploy") {
-                echo "ARTIFACTORY_CREDENTIALS: ${ARTIFACTORY_CREDENTIALS}"
-                withCredentials([usernamePassword(credentialsId: "${ARTIFACTORY_CREDENTIALS}", usernameVariable: 'ARTIFACTORY_USER', passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'artifactory_credentials', usernameVariable: 'ARTIFACTORY_USER', passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
                     sh label: '', script: '''#!/bin/bash
                         set -e
                         cd $PROJECT_DIR
