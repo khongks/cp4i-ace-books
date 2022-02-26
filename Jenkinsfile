@@ -130,5 +130,11 @@ podTemplate(
                     '''
             }
         }
+        stage('Unit Test') {
+            container("oc-deploy") {
+                sh label: '', script: '''#!/bin/bash
+                    curl -k https://books-http-ace.itzroks-3100015379-x94hbr-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud/api/v1/books | jq -r .
+                '''
+        }
     }
 }
