@@ -96,16 +96,16 @@ podTemplate(
         }
         stage('Upload Bar File') {
             container("oc-deploy") {
-                sh label: '', script: '''#!/bin/bash
-                    set -e
-                    cd $PROJECT_DIR
-                    ls -lha
-                    # echo "Calling upload-barfile-to-artifactory.sh ${ARTIFACTORY_HOST} ${ARTIFACTORY_REPO} ${ARTIFACTORY_BASE_PATH} "${BAR_NAME}_${BUILD_NUMBER}.bar" ${ARTIFACTORY_USER} ${ARTIFACTORY_PASSWORD}"
-                    withCredentials([usernamePassword(credentialsId: 'artifactory-credentials', usernameVariable: 'ARTIFACTORY_USER', passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
-                        echo "Calling upload-barfile-to-artifactory.sh ${ARTIFACTORY_HOST} ${ARTIFACTORY_REPO} ${ARTIFACTORY_BASE_PATH} "${BAR_NAME}_${BUILD_NUMBER}.bar" ${ARTIFACTORY_USER} ${ARTIFACTORY_PASSWORD}"
-                        ./upload-barfile-to-artifactory.sh ${ARTIFACTORY_HOST} ${ARTIFACTORY_REPO} ${ARTIFACTORY_BASE_PATH} "${BAR_NAME}_${BUILD_NUMBER}.bar" ${ARTIFACTORY_USER} ${ARTIFACTORY_PASSWORD}
+                withCredentials([usernamePassword(credentialsId: 'artifactory-credentials', usernameVariable: 'ARTIFACTORY_USER', passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
+                    sh label: '', script: '''#!/bin/bash
+                        set -e
+                        cd $PROJECT_DIR
+                        ls -lha
+                            echo "Calling upload-barfile-to-artifactory.sh ${ARTIFACTORY_HOST} ${ARTIFACTORY_REPO} ${ARTIFACTORY_BASE_PATH} "${BAR_NAME}_${BUILD_NUMBER}.bar" ${ARTIFACTORY_USER} ${ARTIFACTORY_PASSWORD}"
+                            ./upload-barfile-to-artifactory.sh ${ARTIFACTORY_HOST} ${ARTIFACTORY_REPO} ${ARTIFACTORY_BASE_PATH} "${BAR_NAME}_${BUILD_NUMBER}.bar" ${ARTIFACTORY_USER} ${ARTIFACTORY_PASSWORD}
+                        '''
                     }
-                    '''
+                }
             }
         }
         stage('Deploy Intergration Server') {
