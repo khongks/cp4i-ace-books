@@ -32,6 +32,7 @@ def artifactoryHost = "artifactory-tools.itzroks-3100015379-x94hbr-6ccd7f378ae81
 def artifactoryPort = "443"
 def artifactoryRepo = "generic-local"
 def artifactoryBasePath = "cp4i"
+def artifactoryCredentials = "artifactory_credentials" // defined in Jenkins credentials
 
 podTemplate(
     serviceAccount: "jenkins-jenkins-dev",
@@ -55,6 +56,7 @@ podTemplate(
             envVar(key: 'ARTIFACTORY_PORT', value: "${artifactoryPort}"),
             envVar(key: 'ARTIFACTORY_REPO', value: "${artifactoryRepo}"),
             envVar(key: 'ARTIFACTORY_BASE_PATH', value: "${artifactoryBasePath}"),
+            envVar(key: 'ARTIFACTORY_CREDENTIALS', value: "${artifactoryCredentials}"),
             //envVar(key: 'ARTIFACTORY_USER', value: "admin"),
             //envVar(key: 'ARTIFACTORY_PASSWORD', value: "Passw0rd!"),
         ]),
@@ -96,7 +98,8 @@ podTemplate(
         }
         stage('Upload Bar File') {
             container("oc-deploy") {
-                withCredentials([usernamePassword(credentialsId: 'artifactory-credentials', usernameVariable: 'ARTIFACTORY_USER', passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
+                echo "ARTIFACTORY_CREDENTIALS: ${ARTIFACTORY_CREDENTIALS}"
+                withCredentials([usernamePassword(credentialsId: "${ARTIFACTORY_CREDENTIALS}", usernameVariable: 'ARTIFACTORY_USER', passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
                     sh label: '', script: '''#!/bin/bash
                         set -e
                         cd $PROJECT_DIR
