@@ -40,7 +40,7 @@ podTemplate(
         containerTemplate(name: 'oc-deploy', image: "${ocImage}", workingDir: "/home/jenkins", ttyEnabled: true, envVars: [
             envVar(key: 'NAMESPACE', value: "${namespace}"),
             envVar(key: 'APP_NAME', value: "${appName}"),
-            envVar(key: 'SERVER_NAME', value: "${serverName}")
+            envVar(key: 'SERVER_NAME', value: "${serverName}"),
             envVar(key: 'BAR_NAME', value: "${barName}"),            
             envVar(key: 'CONFIGURATION_LIST', value: "${configurationList}"),
             envVar(key: 'ACE_DASHBOARD_HOST', value: "${aceDashboardHost}"),
