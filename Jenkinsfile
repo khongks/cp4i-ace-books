@@ -1,3 +1,7 @@
+// Validate
+// JENKINS_URL=jenkins-jenkins-dev-jenkins.itzroks-3100015379-x94hbr-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud
+// curl --user "admin:Passw0rd!" -X POST -F "jenkinsfile=Jenkinsfile" https://$JENKINS_URL/pipeline-model-converter/validate
+
 // Image variables
 def buildBarImage = "image-registry.openshift-image-registry.svc:5000/jenkins/ace-buildbar:12.0.2.0-ubuntu"
 def ocImage = "image-registry.openshift-image-registry.svc:5000/jenkins/oc-deploy:latest"
@@ -51,8 +55,8 @@ podTemplate(
             envVar(key: 'ARTIFACTORY_PORT', value: "${artifactoryPort}"),
             envVar(key: 'ARTIFACTORY_REPO', value: "${artifactoryRepo}"),
             envVar(key: 'ARTIFACTORY_BASE_PATH', value: "${artifactoryBasePath}"),
-            envVar(key: 'ARTIFACTORY_USER', value: "admin"),
-            envVar(key: 'ARTIFACTORY_PASSWORD', value: "Passw0rd!"),
+            //envVar(key: 'ARTIFACTORY_USER', value: "admin"),
+            //envVar(key: 'ARTIFACTORY_PASSWORD', value: "Passw0rd!"),
         ]),
         containerTemplate(name: 'jnlp', image: "jenkins/jnlp-slave:latest", ttyEnabled: true, workingDir: "/home/jenkins", envVars: [
             envVar(key: 'HOME', value: '/home/jenkins'),
@@ -96,8 +100,11 @@ podTemplate(
                     set -e
                     cd $PROJECT_DIR
                     ls -lha
-                    echo "Calling upload-barfile-to-artifactory.sh ${ARTIFACTORY_HOST} ${ARTIFACTORY_REPO} ${ARTIFACTORY_BASE_PATH} "${BAR_NAME}_${BUILD_NUMBER}.bar" ${ARTIFACTORY_USER} ${ARTIFACTORY_PASSWORD}"
-                    ./upload-barfile-to-artifactory.sh ${ARTIFACTORY_HOST} ${ARTIFACTORY_REPO} ${ARTIFACTORY_BASE_PATH} "${BAR_NAME}_${BUILD_NUMBER}.bar" ${ARTIFACTORY_USER} ${ARTIFACTORY_PASSWORD}
+                    # echo "Calling upload-barfile-to-artifactory.sh ${ARTIFACTORY_HOST} ${ARTIFACTORY_REPO} ${ARTIFACTORY_BASE_PATH} "${BAR_NAME}_${BUILD_NUMBER}.bar" ${ARTIFACTORY_USER} ${ARTIFACTORY_PASSWORD}"
+                    withCredentials([usernamePassword(credentialsId: 'artifactory-credentials', usernameVariable: 'ARTIFACTORY_USER', passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
+                        echo "Calling upload-barfile-to-artifactory.sh ${ARTIFACTORY_HOST} ${ARTIFACTORY_REPO} ${ARTIFACTORY_BASE_PATH} "${BAR_NAME}_${BUILD_NUMBER}.bar" ${ARTIFACTORY_USER} ${ARTIFACTORY_PASSWORD}"
+                        ./upload-barfile-to-artifactory.sh ${ARTIFACTORY_HOST} ${ARTIFACTORY_REPO} ${ARTIFACTORY_BASE_PATH} "${BAR_NAME}_${BUILD_NUMBER}.bar" ${ARTIFACTORY_USER} ${ARTIFACTORY_PASSWORD}
+                    }
                     '''
             }
         }
