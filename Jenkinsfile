@@ -1,10 +1,10 @@
 // Validate
-// JENKINS_URL=jenkins-jenkins-dev-jenkins.itzroks-3100015379-x94hbr-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud
+// JENKINS_URL=jenkins-jenkins.itzroks-3100015379-raqclh-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud
 // curl --user "admin:Passw0rd!" -X POST -F "jenkinsfile=Jenkinsfile" https://$JENKINS_URL/pipeline-model-converter/validate
 
 // Image variables
-def buildBarImage = "image-registry.openshift-image-registry.svc:5000/jenkins/ace-buildbar:12.0.2.0-ubuntu"
-def ocImage = "image-registry.openshift-image-registry.svc:5000/jenkins/oc-deploy:latest"
+def buildBarImage = "image-registry.openshift-image-registry.svc:5000/jenkins/ace-buildbar:12.0.4.0-ubuntu"
+def ocImage = "image-registry.openshift-image-registry.svc:5000/jenkins/oc-deploy:4.10"
 
 // Params for Git Checkout-Stage
 def gitCp4iDevOpsUtilsRepo = "https://github.com/khongks/cp4i-devops-utils.git"
@@ -27,15 +27,20 @@ def aceDashboardHost = "ace-dashboard-dash.ace.svc.cluster.local"
 def port = "3443"
 def ibmAceSecretName = "ace-dashboard-dash"
 
+// ACE integration server
+def aceVersion = "12.0.5.0-r3"
+def aceLicense = "L-APEH-CCHL5W"
+def replicas = "1"
+
 // Artifactory configurations
-def artifactoryHost = "artifactory-tools.itzroks-3100015379-x94hbr-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud"
+def artifactoryHost = "artifactory-tools.itzroks-3100015379-raqclh-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud"
 def artifactoryPort = "443"
 def artifactoryRepo = "generic-local"
 def artifactoryBasePath = "cp4i"
 def artifactoryCredentials = "artifactory_credentials" // defined in Jenkins credentials
 
 podTemplate(
-    serviceAccount: "jenkins-jenkins-dev",
+    serviceAccount: "jenkins",
     containers: [
         containerTemplate(name: 'ace-buildbar', image: "${buildBarImage}", workingDir: "/home/jenkins", ttyEnabled: true, envVars: [
             envVar(key: 'BAR_NAME', value: "${barName}"),
@@ -57,8 +62,9 @@ podTemplate(
             envVar(key: 'ARTIFACTORY_REPO', value: "${artifactoryRepo}"),
             envVar(key: 'ARTIFACTORY_BASE_PATH', value: "${artifactoryBasePath}"),
             envVar(key: 'ARTIFACTORY_CREDENTIALS', value: "${artifactoryCredentials}"),
-            //envVar(key: 'ARTIFACTORY_USER', value: "admin"),
-            //envVar(key: 'ARTIFACTORY_PASSWORD', value: "Passw0rd!"),
+            envVar(key: 'ACE_VERSION', value: ${aceVersion}"),
+            envVar(key: 'ACE_LICENSE', value: ${aceLicense}"),
+            envVar(key: 'REPLICAS', value: ${replicas}"),
         ]),
         containerTemplate(name: 'jnlp', image: "jenkins/jnlp-slave:latest", ttyEnabled: true, workingDir: "/home/jenkins", envVars: [
             envVar(key: 'HOME', value: '/home/jenkins'),
@@ -117,12 +123,16 @@ podTemplate(
                     BAR_FILE="${BAR_NAME}_${BUILD_NUMBER}.bar"
                     cat integration-server.yaml.tmpl
                     sed -e "s/{{NAME}}/$SERVER_NAME/g" \
+                        -e "s/{{NAMESPACE}}/$NAMESPACE/g" \
                         -e "s/{{ARTIFACTORY_HOST}}/$ARTIFACTORY_HOST/g" \
                         -e "s/{{ARTIFACTORY_PORT}}/$ARTIFACTORY_PORT/g" \
                         -e "s/{{ARTIFACTORY_REPO}}/$ARTIFACTORY_REPO/g" \
                         -e "s/{{ARTIFACTORY_BASE_PATH}}/$ARTIFACTORY_BASE_PATH/g" \
                         -e "s/{{BAR_FILE}}/$BAR_FILE/g" \
                         -e "s/{{CONFIGURATION_LIST}}/$CONFIGURATION_LIST/g" \
+                        -e "s/{{ACE_VERSION}}/$ACE_VERSION/g" \
+                        -e "s/{{ACE_LICENSE}}/$ACE_LICENSE/g" \
+                        -e "s/{{REPLICAS}}/$REPLICAS/g"                         
                         integration-server.yaml.tmpl > integration-server.yaml
                     cat integration-server.yaml
                     oc apply -f integration-server.yaml
@@ -132,7 +142,8 @@ podTemplate(
         stage('Unit Test') {
             container("oc-deploy") {
                 sh label: '', script: '''#!/bin/bash
-                    curl -k http://books-http-ace.itzroks-3100015379-x94hbr-6ccd7f378ae819553d37d5f2ee142bd6-0000.au-syd.containers.appdomain.cloud/api/v1/books | jq -r .
+                    HOSTNAME=$(oc get route -n ace books-http-ace -ogo-template --template='{{.spec.host}}')
+                    curl -k http://${HOSTNAME}/api/v1/books | jq -r .
                 '''
             }
         }
