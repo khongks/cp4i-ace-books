@@ -62,9 +62,9 @@ podTemplate(
             envVar(key: 'ARTIFACTORY_REPO', value: "${artifactoryRepo}"),
             envVar(key: 'ARTIFACTORY_BASE_PATH', value: "${artifactoryBasePath}"),
             envVar(key: 'ARTIFACTORY_CREDENTIALS', value: "${artifactoryCredentials}"),
-            envVar(key: 'ACE_VERSION', value: ${aceVersion}"),
-            envVar(key: 'ACE_LICENSE', value: ${aceLicense}"),
-            envVar(key: 'REPLICAS', value: ${replicas}"),
+            envVar(key: 'ACE_VERSION', value: "${aceVersion}"),
+            envVar(key: 'ACE_LICENSE', value: "${aceLicense}"),
+            envVar(key: 'REPLICAS', value: "${replicas}"),
         ]),
         containerTemplate(name: 'jnlp', image: "jenkins/jnlp-slave:latest", ttyEnabled: true, workingDir: "/home/jenkins", envVars: [
             envVar(key: 'HOME', value: '/home/jenkins'),
