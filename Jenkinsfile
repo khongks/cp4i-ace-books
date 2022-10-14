@@ -145,8 +145,8 @@ podTemplate(
         stage('Unit Test') {
             container("oc-deploy") {
                 sh label: '', script: '''#!/bin/bash
-                    HOSTNAME=$(oc get route -n ${NAMESPACE} ${NAME}-http -ogo-template --template='{{.spec.host}}')
-                    curl -k http://${HOSTNAME}/api/v1/${NAME} | jq -r .
+                    HOSTNAME=$(oc get route -n ${NAMESPACE} ${SERVER_NAME}-http -ogo-template --template='{{.spec.host}}')
+                    curl -k http://${HOSTNAME}/api/v1/${SERVER_NAME} | jq -r .
                 '''
             }
         }
