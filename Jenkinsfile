@@ -136,14 +136,15 @@ podTemplate(
                         integration-server.yaml.tmpl > integration-server.yaml
                     cat integration-server.yaml
                     oc apply -f integration-server.yaml
+                    oc wait --for=condition=Ready integrationserver/${NAME} --timeout=120s -n ${NAMESPACE}
                     '''
             }
         }
         stage('Unit Test') {
             container("oc-deploy") {
                 sh label: '', script: '''#!/bin/bash
-                    HOSTNAME=$(oc get route -n ace books-http -ogo-template --template='{{.spec.host}}')
-                    curl -k http://${HOSTNAME}/api/v1/books | jq -r .
+                    HOSTNAME=$(oc get route -n ${NAMESPACE} ${NAME}-http -ogo-template --template='{{.spec.host}}')
+                    curl -k http://${HOSTNAME}/api/v1/${NAME} | jq -r .
                 '''
             }
         }
