@@ -22,6 +22,7 @@ def serverName = "books"
 def namespace = "ace"
 def configurationList = ""
 
+
 // ACE dashboard configurations
 def aceDashboardHost = "ace-dashboard-dash.ace.svc.cluster.local"
 def port = "3443"
