@@ -136,6 +136,7 @@ podTemplate(
                         integration-server.yaml.tmpl > integration-server.yaml
                     cat integration-server.yaml
                     oc apply -f integration-server.yaml
+                    echo "Wait for integration server to be Ready"
                     oc wait --for=condition=Ready integrationserver/${NAME} --timeout=120s -n ${NAMESPACE}
                     '''
             }
